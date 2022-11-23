@@ -1,29 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx/controller/product_controller.dart';
-import 'package:getx/view/product_screen.dart';
-import 'package:getx/view/product_screen_getx.dart';
 
-class MainScreen extends StatelessWidget {
-  MainScreen({super.key});
-  var counter = 0.obs;
-  // RxInt counter = 0.obs;
-  // var counter = RxInt(0);
-  // var counter = Rx<int>(0);
-
-  // RxBool status = false.obs;
-  //obx
-  //GetX
-  //GetBuilder
-
+// ignore: must_be_immutable
+class ProductScreen extends StatelessWidget {
+  ProductScreen({super.key});
   ProductGetBuilderController productController =
       Get.put(ProductGetBuilderController());
-  // ProductController productController = Get.put(ProductController(productModel:ProductModel(name: "",price: "",offer: "").obs));
-  // productModel:
-  //     ProductModel(name: "Coca", price: "100", offer: "30%").obs));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.yellowAccent,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -45,24 +32,19 @@ class MainScreen extends StatelessWidget {
             })),
             ElevatedButton(
                 onPressed: () {
-                  counter = counter + 1;
+                  // counter = counter + 1;
                   productController.productModel.update((val) {
-                    val!.name = "Lays";
-                    val.offer = "20%";
-                    val.price = "50.99";
+                    val!.name = "Lamb";
+                    val.offer = "17%";
+                    val.price = "97.99";
                   });
                 },
-                child: const Text("Go to ProductScreen")),
+                child: const Text("Press")),
             ElevatedButton(
                 onPressed: () {
-                  Get.to(ProductScreen());
+                  Get.back();
                 },
-                child: const Text("Next Page")),
-            ElevatedButton(
-                onPressed: () {
-                  Get.to(ProductScreenGetx());
-                },
-                child: const Text("Next GetX"))
+                child: const Text("Back to Main"))
           ],
         ),
       ),

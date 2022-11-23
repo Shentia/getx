@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:getx/view/main_screen.dart';
+import 'package:getx/view/product_screen.dart';
+import 'package:getx/view/product_screen_get_builder.dart';
+import 'package:getx/view/product_screen_get_builder_uniqueId.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +29,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MainScreen(),
+      home: const ProductScreenGetBuilderUniqueId(),
     );
   }
 }
